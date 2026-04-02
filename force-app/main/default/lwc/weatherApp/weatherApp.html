@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title = "🌦️ Weather App">
+        <div class ="container">
+            <lightning-input label = "Enter City Name" value ={city} onchange={handleCityChange}></lightning-input>
+
+            <lightning-button label = "Get Weather Data" onclick={fetchWeather}  class="btn"></lightning-button>
+
+            <template if:true={weatherData}>
+                <div class="Weather-Box">
+                    <template if:true={weatherData}>
+    
+                        <h2>{weatherData.city}, {weatherData.country}</h2>
+                        <img src={weatherData.icon} class="weather-icon"/>
+
+                        <p>🌡 Temp: {weatherData.temp} °C</p>
+                        <p>☁ Cloud: {weatherData.cloud} %</p>
+                        <p>💧 Humidity: {weatherData.humidity} %</p>
+                        <p>🌬 Wind: {weatherData.wind} km/h</p>
+                        <p>🌤 Condition: {weatherData.condition}</p>
+                        <p>🕒 Last Updated: {weatherData.lastUpdated}</p>
+                    </template>
+
+                </div>
+            </template>
+            
+             <template if:true={error}>
+                <div class="error-message">
+                    <p>{error}</p>
+                </div>
+             </template>
+        </div>
+    </lightning-card>
+</template>
