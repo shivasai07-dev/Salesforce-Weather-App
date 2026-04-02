@@ -25,15 +25,21 @@ A real-time Weather Application built using Salesforce LWC and Apex that integra
 ## 🧠 Architecture
 
 [ LWC UI ]
+
      ↓
 [ Apex Controller ]
+
      ↓
 [ External Weather API ]
+
      ↓
 [ Wrapper Class ]
+
      ↓
 [ Weather__c Object ]
+
      ↓
+     
 [ UI Display ]
 
 ## 📂 Project Structure
