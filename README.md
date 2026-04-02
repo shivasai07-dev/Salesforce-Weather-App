@@ -24,23 +24,44 @@ A real-time Weather Application built using Salesforce LWC and Apex that integra
 
 ## 🧠 Architecture
 
-[ LWC UI ]
-
-     ↓
-[ Apex Controller ]
-
-     ↓
-[ External Weather API ]
-
-     ↓
-[ Wrapper Class ]
-
-     ↓
-[ Weather__c Object ]
-
-     ↓
-     
-[ UI Display ]
+                +----------------------+
+                |     LWC UI           |
+                | (weatherApp)         |
+                +----------+-----------+
+                           |
+                           | @AuraEnabled Call
+                           ▼
+                +----------------------+
+                |   Apex Controller    |
+                |  WeatherAPI.cls      |
+                +----------+-----------+
+                           |
+                           | HTTP Callout
+                           ▼
+                +----------------------+
+                |   Weather API        |
+                | (External Service)   |
+                +----------+-----------+
+                           |
+                           | JSON Response
+                           ▼
+                +----------------------+
+                | Wrapper Class        |
+                | JsonToApex...        |
+                +----------+-----------+
+                           |
+                           | Extract Data
+                           ▼
+                +----------------------+
+                | Custom Object        |
+                | Weather__c           |
+                +----------------------+
+                           |
+                           | Return Map
+                           ▼
+                +----------------------+
+                | LWC UI Display       |
+                +----------------------+
 
 ## 📂 Project Structure
 
